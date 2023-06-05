@@ -42,13 +42,18 @@ def main():
         # Move and rename the aligned_c1.csv file
         c1_file = os.path.join(folder, "aligned_c1.csv")
         c1_new_name = get_name(files[0])
-        if ("" in )
+        if (not (ALIGNED_C1_CONTAINS in c1_new_name)):
+            print("Verification failed")
+            exit(1)
         shutil.move(c1_file, os.path.join(new_directory, c1_new_name))
     
         # Move and rename the aligned_c2.csv file
-        c1_file = os.path.join(folder, "aligned_c2.csv")
-        c1_new_name = get_name(files[1])
-        shutil.move(c1_file, os.path.join(new_directory, c1_new_name))
+        c2_file = os.path.join(folder, "aligned_c2.csv")
+        c2_new_name = get_name(files[1])
+        if (not (ALIGNED_C2_CONTAINS in c2_new_name)):
+            print("Verification failed")
+            exit(1)
+        shutil.move(c2_file, os.path.join(new_directory, c1_new_name))
 
 # Returns the cell line, replicate #, protein, channel, and cell #, and aligned in the correct format
 # i.e 1C8PTRF_1_Cav_568_4_aligned.csv
