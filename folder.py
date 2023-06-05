@@ -2,6 +2,10 @@ import os
 import glob
 import shutil
 
+# Update me to verify the files were matched correctly. For example, if you had a file named 1C8PTRF_1_Cav_568_4_CC.csv, and you wanted
+# that to go with aligned_c1, change ALIGNED_C1_CONTAINS to 568
+ALIGNED_C1_CONTAINS = ""
+ALIGNED_C2_CONTAINS = ""
 def main():
 # Prompt the user to enter the parent directory path
     parent_directory = input("Enter the path to the parent directory: ")
@@ -38,6 +42,7 @@ def main():
         # Move and rename the aligned_c1.csv file
         c1_file = os.path.join(folder, "aligned_c1.csv")
         c1_new_name = get_name(files[0])
+        if ("" in )
         shutil.move(c1_file, os.path.join(new_directory, c1_new_name))
     
         # Move and rename the aligned_c2.csv file
