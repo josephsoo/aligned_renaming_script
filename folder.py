@@ -56,12 +56,12 @@ def main():
         shutil.move(c2_file, os.path.join(new_directory, c2_new_name))
 
 # Returns the cell line, replicate #, protein, channel, and cell #, and aligned in the correct format
-# i.e 1C8PTRF_1_Cav_568_4_aligned.csv
+# i.e 1C8PTRF_1_Cav_568_4_aligned.txt
 def get_name(filename):
     directories = filename.split(os.sep)
     name = directories[-1]
     core = name.rsplit("_", 1)[0]
-    core = core + "_aligned.csv"
+    core = core + "_aligned.txt"
     return core
 
 if __name__=="__main__":
