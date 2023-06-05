@@ -33,6 +33,7 @@ def main():
         # Check there are a correct number of files
         if len(files) != 2:
                 print(f"Unexpected number of files that end in CC in {folder}")
+                exit(1)
     
         # Move and rename the aligned_c1.csv file
         c1_file = os.path.join(folder, "aligned_c1.csv")
