@@ -53,7 +53,7 @@ def main():
         if (not (ALIGNED_C2_CONTAINS in c2_new_name)):
             print("Verification failed")
             exit(1)
-        shutil.move(c2_file, os.path.join(new_directory, c1_new_name))
+        shutil.move(c2_file, os.path.join(new_directory, c2_new_name))
 
 # Returns the cell line, replicate #, protein, channel, and cell #, and aligned in the correct format
 # i.e 1C8PTRF_1_Cav_568_4_aligned.csv
