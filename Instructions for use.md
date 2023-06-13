@@ -11,7 +11,7 @@ Replicate_Experiment_name\
 —-—-—- ….aligned_c2.csv\
 —----- cell#\
 —-—-—- ….aligned_c1.csv\
-—-—-—- ….aligned_c2.csv\
+—-—-—- ….aligned_c2.csv
 
 ## This script will change the directory into this:
 
