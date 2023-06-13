@@ -31,8 +31,7 @@ Replicate_Experiment_name_PTRF_aligned\
 ---- cell#\
 -—----- ….aligned_c2.csv
 
-Instructions for use:
-
+## What to do
 Run 
 ```{bash}
 cd /scratch/$USER
