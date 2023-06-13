@@ -1,7 +1,7 @@
 ## Requirements:
 File structure like this:
 
-Replicate_Experiment_name\
+Replicate_name\
 —- cc\
 —----- cell#\
 —-—-—- ….aligned_c1.csv\
@@ -13,9 +13,9 @@ Replicate_Experiment_name\
 —-—-—- ….aligned_c1.csv\
 —-—-—- ….aligned_c2.csv
 
-## This script will change the directory into this:
+## This script will add the following directories with the following structures:
 
-Replicate_Experiment_name_Cav_aligned\
+Replicate_name_Cav_aligned\
 ---- cell#\
 -—---- ….aligned_c1.csv\
 ---- cell#\
@@ -23,7 +23,7 @@ Replicate_Experiment_name_Cav_aligned\
 ---- cell#\
 -—--- ….aligned_c1.csv
 
-Replicate_Experiment_name_PTRF_aligned\
+Replicate_name_PTRF_aligned\
 ---- cell#\
 -—----- ….aligned_c2.csv\
 ---- cell#\
