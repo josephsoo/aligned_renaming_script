@@ -32,7 +32,7 @@ Replicate_Experiment_name_PTRF_aligned\
 -—----- ….aligned_c2.csv
 
 ## What to do
-Run 
+Run to change the directory to scratch
 ```{bash}
 cd /scratch/$USER
 ```
@@ -43,7 +43,7 @@ cd /scratch/$USER
 export DATASET="/scratch/$USER/FIXME"
 ```
 
-Then, run
+Run this to download and run the script
 
 ```{bash}
 wget https://raw.githubusercontent.com/josephsoo/aligned_renaming_script/master/folder.py -O folder.py
