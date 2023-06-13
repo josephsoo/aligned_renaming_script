@@ -2,10 +2,6 @@ import os
 import glob
 import shutil
 
-# Update me to verify the files were matched correctly. For example, if you had a file named 1C8PTRF_1_Cav_568_4_CC.csv, and you wanted
-# that to go with aligned_c1, change ALIGNED_C1_CONTAINS to 568
-ALIGNED_C1_CONTAINS = ""
-ALIGNED_C2_CONTAINS = ""
 def main():
 # Prompt the user to enter the parent directory path
     parent_directory = input("Enter the path to the parent directory: ")
@@ -16,9 +12,10 @@ def main():
         exit(1)
     
 # Create a destination directory for all the renamed files to go
-    destination_parent_directory = parent_directory + "_renamed"
-    os.makedirs(destination_parent_directory, exist_ok=True)
-
+    destination_parent_directory_cav = parent_directory + "_Cav_aligned"
+    destination_parent_directory_ptrf = parent_directory + "_PTRF_aligned"
+    os.makedirs(destination_parent_directory_cav, exist_ok=True)
+    os.makedirs(destination_parent_directory_ptrf, exist_ok=True)
 
 # Iterate over subfolders
     for folder in glob.glob(os.path.join(parent_directory, "*")):
@@ -27,41 +24,30 @@ def main():
     
         folder_name = os.path.basename(folder)
     
-        # Create a new directory within each subfolder
-        new_directory = os.path.join(destination_parent_directory, folder_name)
-        os.makedirs(new_directory, exist_ok=True)
+        # Create a folder for the Cav files to go
+        new_directory_cav = os.path.join(destination_parent_directory_cav, folder_name)
+        os.makedirs(new_directory_cav, exist_ok=True)
 
-        # Get the names of the files that end in .CC
-        files = glob.glob(os.path.join(folder, "*CC.csv"))
+        # Create a folder for the PTRF files to go
+        new_directory_ptrf = os.path.join(destination_parent_directory_ptrf, folder_name)
+        os.makedirs(new_directory_ptrf, exist_ok=True)
 
-        # Check there are a correct number of files
-        if len(files) != 2:
-                print(f"Unexpected number of files that end in CC in {folder}")
-                exit(1)
-    
-        # Move and rename the aligned_c1.csv file
-        c1_file = os.path.join(folder, "aligned_c1.csv")
-        c1_new_name = get_name(files[0])
-        if (not (ALIGNED_C1_CONTAINS in c1_new_name)):
-            print("Verification failed")
-            exit(1)
-        shutil.move(c1_file, os.path.join(new_directory, c1_new_name))
-    
-        # Move and rename the aligned_c2.csv file
-        c2_file = os.path.join(folder, "aligned_c2.csv")
-        c2_new_name = get_name(files[1])
-        if (not (ALIGNED_C2_CONTAINS in c2_new_name)):
-            print("Verification failed")
-            exit(1)
-        shutil.move(c2_file, os.path.join(new_directory, c2_new_name))
+        # moves aligned_c1 and aligned_c2 to the appropriate folders
+        for file in glob.glob(os.path.join(folder, "*")):
+            if not os.path.isfile(folder):
+                continue
+            if ("aligned_c1" in file):
+                shutil.move(file, os.path.join(new_directory_cav, get_name(file)))
+            if ("aligned_c2" in file):
+                shutil.move(file, os.path.join(new_directory_cav, get_name(file)))
+  
 
-# Returns the cell line, replicate #, protein, channel, and cell #, and aligned in the correct format
-# i.e 1C8PTRF_1_Cav_568_4_aligned.txt
+# given a path that ends in .csv, returns the base file name that ends in .txt
 def get_name(filename):
     directories = filename.split(os.sep)
     name = directories[-1]
-    core = name.rsplit("_", 1)[0]
-    core = core + "_aligned.txt"
+    core = name.rsplit(".", 1)[0]
+    core = core + ".txt"
     return core
 
 if __name__=="__main__":
