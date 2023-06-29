@@ -17,8 +17,8 @@ def main():
     os.makedirs(destination_parent_directory_568, exist_ok=True)
 
 # Iterate over subfolders
-    cc = parent_directory + os.sep + "cc"
-
+    cc = parent_directory
+#   cc = parent_directory + os.sep + "cc"
     # iterates over subfolders, i.e. 1, 2, 3
     for folder in glob.glob(os.path.join(cc, "*")):
 
