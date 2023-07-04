@@ -4,8 +4,8 @@ import shutil
 
 def main():
 # gets the parent directory path from bash
-    #parent_directory = os.environ['DATASET']
-    parent_directory = "/Users/josephsoo/Documents/Test_copy"
+    parent_directory = os.environ['DATASET']
+    #parent_directory = "/Users/josephsoo/Documents/Test_copy"
 
 # Check if the parent directory exists
     if not os.path.isdir(parent_directory):
