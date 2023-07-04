@@ -4,7 +4,8 @@ import shutil
 
 def main():
 # gets the parent directory path from bash
-    parent_directory = os.environ['DATASET']
+    #parent_directory = os.environ['DATASET']
+    parent_directory = "/Users/josephsoo/Documents/Test_copy"
 
 # Check if the parent directory exists
     if not os.path.isdir(parent_directory):
@@ -25,7 +26,7 @@ def get_name(filename):
 def move_files(source_directory, c1_directory, c2_directory):
     for file in glob.glob(os.path.join(source_directory, "*")):
         if os.path.isdir(file):
-            folder_name = os.path.basename(source_directory)
+            folder_name = os.path.basename(file)
             new_c1_directory = os.path.join(c1_directory, folder_name)
             os.makedirs(new_c1_directory, exist_ok=True)
             new_c2_directory = os.path.join(c2_directory, folder_name)
