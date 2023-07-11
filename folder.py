@@ -3,7 +3,7 @@ import glob
 import shutil
 
 def main():
-# gets the parent directory path from bash
+# gets the parent directory path
     parent_directory = os.environ['DATASET']
 
 # Check if the parent directory exists
@@ -11,8 +11,8 @@ def main():
         print(f"Error: Parent directory '{parent_directory}' does not exist.")
         exit(1)
     # Create a destination directory for all the renamed files to go
-    destination_parent_directory_c1 = parent_directory + "_aligned_c1" 
-    destination_parent_directory_c2 = parent_directory + "_aligned_c2" 
+    destination_parent_directory_c1 = parent_directory + "_647" 
+    destination_parent_directory_c2 = parent_directory + "_568" 
     os.makedirs(destination_parent_directory_c1, exist_ok=True)
     os.makedirs(destination_parent_directory_c2, exist_ok=True)
 
@@ -33,9 +33,9 @@ def move_files(source_directory, c1_directory, c2_directory):
             
             move_files(file, new_c1_directory, new_c2_directory)
         else:
-            if ("aligned_c1.csv" in file):
+            if ("647" in file):
                 shutil.move(file, os.path.join(c1_directory, get_name(file)))
-            if ("aligned_c2.csv" in file):
+            if ("568" in file):
                 shutil.move(file, os.path.join(c2_directory, get_name(file)))
 
 
