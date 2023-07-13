@@ -33,9 +33,9 @@ def move_files(source_directory, c1_directory, c2_directory):
             
             move_files(file, new_c1_directory, new_c2_directory)
         else:
-            if ("647" in file):
+            if ("aligned_c1.csv" in file):
                 shutil.move(file, os.path.join(c1_directory, get_name(file)))
-            if ("568" in file):
+            if ("aligned_c2.csv" in file):
                 shutil.move(file, os.path.join(c2_directory, get_name(file)))
 
 
