@@ -20,7 +20,10 @@ def main():
 
 # given a path that ends in .csv, returns the base file name that ends in .txt
 def get_name(filename):
-    return os.path.basename(filename)
+    name = os.path.basename(filename)
+    core = name.rsplit(".", 1)[0]
+    core = core + ".txt"
+    return core
 
 def move_files(source_directory, c1_directory, c2_directory):
     for file in glob.glob(os.path.join(source_directory, "*")):
