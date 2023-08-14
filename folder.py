@@ -17,6 +17,8 @@ def main():
     os.makedirs(destination_parent_directory_c2, exist_ok=True)
 
     move_files(parent_directory, destination_parent_directory_c1, destination_parent_directory_c2)
+    remove_last_column(destination_parent_directory_c1)
+    remove_last_column(destination_parent_directory_c2)
 
 # given a path that ends in .csv, returns the base file name that ends in .txt
 def get_name(filename):
@@ -40,6 +42,40 @@ def move_files(source_directory, c1_directory, c2_directory):
                 shutil.move(file, os.path.join(c1_directory, get_name(file)))
             if ("aligned_c2.csv" in file):
                 shutil.move(file, os.path.join(c2_directory, get_name(file)))
+
+def remove_last_column(parent_directory):
+    parent_directory = os.environ['DATASET']
+# Check if the parent directory exists
+    if not os.path.isdir(parent_directory):
+        print(f"Error: Parent directory '{parent_directory}' does not exist.")
+        exit(1)
+
+    for folder in glob.glob(os.path.join(parent_directory, "*")):
+
+
+        if not os.path.isdir(folder):
+            continue
+
+
+        for textfile in glob.glob(os.path.join(folder, "*")):
+            with open(textfile, 'r') as file:
+                reader = csv.reader(file)
+                rows = list(reader)
+
+# Get the value of the upper right cell
+            upper_right_cell = rows[0][-1]
+
+# Check if it equals 'originalfile'
+            if upper_right_cell == 'originalfile':
+                print(f"deleting last column for {textfile}")
+    # Remove the last column
+                for row in rows:
+                    del row[-1]
+
+# Write the modified data back to the CSV file
+            with open(textfile, 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerows(rows)
 
 
 if __name__=="__main__":
