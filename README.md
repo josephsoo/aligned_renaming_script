@@ -1,37 +1,40 @@
 # aligned_renaming_script
-script that renames files to a new folder to be processed by SuperResNet
+This script renames and organizes files so that they can be processed by SuperResNet Batch
 ## Requirements:
-File structure like this:
+This script requires a folder processed by the [alignment pipeline for drift correction](https://github.com/NanoscopyAI/tutorial_smlm_alignment_colocalization)
 
+**An example file structure may look like this:**
 Replicate_name\
 —- cc\
 —----- cell#\
-—-—-—- ….aligned_c1.csv\
-—-—-—- ….aligned_c2.csv\
+—-—-—- …aligned_c1.csv\
+—-—-—- …aligned_c2.csv\
 —----- cell#\
-—-—-—- ….aligned_c1.csv\
-—-—-—- ….aligned_c2.csv\
+—-—-—- …aligned_c1.csv\
+—-—-—- …aligned_c2.csv\
 —----- cell#\
-—-—-—- ….aligned_c1.csv\
-—-—-—- ….aligned_c2.csv
+—-—-—- …aligned_c1.csv\
+—-—-—- …aligned_c2.csv
 
 ## This script will add the following directories with the following structures:
 
-Replicate_name_Cav_aligned\
+Replicate_name_647\
 ---- cell#\
--—---- ….aligned_c1.csv\
+-—---- ….aligned_c1.txt\
 ---- cell#\
--—---- ….aligned_c1.csv\
+-—---- ….aligned_c1.txt\
 ---- cell#\
--—--- ….aligned_c1.csv
+-—--- ….aligned_c1.txt
 
-Replicate_name_PTRF_aligned\
+Replicate_name_568\
 ---- cell#\
--—----- ….aligned_c2.csv\
+-—----- ….aligned_c2.txt\
 ---- cell#\
--—----- ….aligned_c2.csv\
+-—----- ….aligned_c2.txt\
 ---- cell#\
--—----- ….aligned_c2.csv
+-—----- ….aligned_c2.txt
+
+Within each event list, it will also remove the "original file" column, so that it can be processed by SuperResNet Batch
 
 ## What to do
 Run to change the directory to scratch
