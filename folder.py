@@ -11,8 +11,8 @@ def main():
         print(f"Error: Parent directory '{parent_directory}' does not exist.")
         exit(1)
     # Create a destination directory for all the renamed files to go
-    destination_parent_directory_c1 = parent_directory + "_aligned_c1" 
-    destination_parent_directory_c2 = parent_directory + "_aligned_c2" 
+    destination_parent_directory_c1 = parent_directory + "_647" 
+    destination_parent_directory_c2 = parent_directory + "_568" 
     os.makedirs(destination_parent_directory_c1, exist_ok=True)
     os.makedirs(destination_parent_directory_c2, exist_ok=True)
 
