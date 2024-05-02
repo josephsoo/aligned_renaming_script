@@ -25,7 +25,7 @@ def main():
 def get_name(filename):
     name = os.path.basename(filename)
     core = name.rsplit(".", 1)[0]
-    core = core + ".txt"  # Modify to ".txt" if conversion happens before, or keep as ".csv" and convert after.
+    core = core + ".csv"  # Modify to ".txt" if conversion happens before, or keep as ".csv" and convert after.
     return core
 
 def move_files(source_directory, c1_directory, c2_directory):
