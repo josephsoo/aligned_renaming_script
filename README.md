@@ -36,7 +36,7 @@ Replicate_name_568\
 
 Within each event list, it will also remove the "original file" column, so that it can be processed by SuperResNet Batch
 
-## What to do
+## What to do- two channel
 Run to change the directory to scratch
 ```{bash}
 cd /scratch/$USER
@@ -54,4 +54,34 @@ Run this to download and run the script
 wget https://raw.githubusercontent.com/josephsoo/aligned_renaming_script/master/folder.py -O folder.py
 
 python folder.py
+```
+
+## What to do- single channel
+**An example file structure may look like this:**
+Replicate_name\
+—- cc\
+—----- cell#\
+—-—-—- cell1.csv\
+—-—-—- ….csv\
+—----- cell#\
+—-—-—- ….csv\
+—-—-—- ….csv\
+—----- cell#\
+—-—-—- ….csv\
+—-—-—- ….csv
+
+Run to change the directory to scratch
+```{bash}
+cd /scratch/$USER
+```
+```{bash}
+export DATASET="/scratch/$USER/FIXME"
+```
+
+Run this to download and run the script
+
+```{bash}
+wget https://raw.githubusercontent.com/josephsoo/aligned_renaming_script/master/remove_other_cols.py -O remove_other_cols.py
+
+python remove_other_cols.py
 ```
