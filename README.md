@@ -74,7 +74,6 @@ Run to change the directory to scratch
 ```{bash}
 cd /scratch/$USER
 ```
-\\
 ```{bash}
 export DATASET="/scratch/$USER/FIXME"
 ```
